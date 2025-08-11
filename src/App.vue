@@ -19,12 +19,15 @@ onMounted(() => {
 });
 
 async function getCity(city) {
+  const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
   const params = new URLSearchParams({
     q: city,
     lang: 'ru',
-    key: import.meta.env.VITE_APP_WEATHER_API_KEY,
+    key: apiKey,
     days: 3,
   });
+
+  console.log('key ', import.meta.env.VITE_APP_WEATHER_API_KEY);
   const res = await fetch(`${API_ENDPOINT}/forecast.json?${params.toString()}`);
 
   if (!res.ok) {
