@@ -22,7 +22,7 @@ async function getCity(city) {
   const params = new URLSearchParams({
     q: city,
     lang: 'ru',
-    key: '2d925f5f80914c9991c115439252507',
+    key: import.meta.env.VITE_APP_WEATHER_API_KEY,
     days: 3,
   });
   const res = await fetch(`${API_ENDPOINT}/forecast.json?${params.toString()}`);
